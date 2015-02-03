@@ -6,6 +6,7 @@
 import pyrax
 import argparse
 import os
+import sys
 import jinja2
 
 def generate_lsync_config(addresses):
