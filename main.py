@@ -29,7 +29,7 @@ def main():
 
   # Using credentials file
   try:
-    pyrax.set_credential_file("./.cloud_credentials")
+    pyrax.set_credential_file(os.path.expanduser("~/.cloud_credentials"))
   except Exception, e:
     sys.stderr.write("Failed to authenticate: %s" % str(e))
 
