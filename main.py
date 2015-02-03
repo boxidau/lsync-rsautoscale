@@ -6,13 +6,10 @@
 import pyrax
 import argparse
 import os
-from auth import Auth
 import jinja2
-from jinja2 import Template
-from jinja2 import Environment, PackageLoader
 
 def generate_lsync_config(addresses):
-  env = Environment(autoescape=True, 
+  env = jinja2.Environment(autoescape=True, 
                     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')))
 
   template = env.get_template('lsyncd.conf')
