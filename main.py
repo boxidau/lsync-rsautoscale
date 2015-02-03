@@ -20,6 +20,8 @@ def main():
   parser = argparse.ArgumentParser()
   parser.add_argument('--as-group', required=True,
                       help='The autoscale group config ID')
+  parser.add_argument('--region', required=False, default='SYD',
+                      help='The region to authenticate to')
 
   args = vars(parser.parse_args())
 
@@ -31,8 +33,8 @@ def main():
   except Exception, e:
     sys.stderr.write("Failed to authenticate: %s" % str(e))
 
-  au = pyrax.autoscale
-  cs = pyrax.cloudservers
+  au = pyrax.connect_to_autoscale(region=args['region'])
+  cs = pyrax.connect_to_cloudservers(region=args['region'])
 
   as_group = au.get(args['as_group']);
 
