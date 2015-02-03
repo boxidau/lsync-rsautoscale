@@ -8,7 +8,7 @@ echo "Last Hash $LAST_HASH"
 
 if [[ "$LAST_HASH" != "$CURRENT_HASH" ]]; then
   echo 'lsync config hash changed'
-  /sbin/service lsyncd reload
+  /sbin/service lsyncd restart
   echo $CURRENT_HASH > ~/.lsyncd_config_hash
 else
   echo 'lsync config not updated'
