@@ -33,4 +33,6 @@ python main.py --as-group=AUTOSCALE_GROUP_ID 2>/dev/null > lsyncd.conf
 ```
 
 This can be added to a cronjob
-
+```
+* * * * * root python /root/lsync-rsautoscale/main.py --as-group=<as-group> --region=HKG 2>/var/log/lsync-autoscale.error_log > /etc/lsyncd.conf; service lsyncd reload
+```
