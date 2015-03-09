@@ -69,6 +69,6 @@ api_key = RACKSPACE_API_KEY
 
 Create a cron job file. In this example, we will call it /etc/cron.d/lsync-rsautoscale
 ```
-* * * * * root python /opt/lsync-rsautoscale/main.py --as-group=AUTOSCALE_GROUP_ID --regiion=REGION > /etc/lsyncd.conf 2>/var/log/lsync-autoscale.error_log; service lsyncd reload
+* * * * * root python /opt/lsync-rsautoscale/main.py --as-group=AUTOSCALE_GROUP_ID --region=REGION > /etc/lsyncd.conf 2>/var/log/lsync-autoscale.error_log; service lsyncd reload
 ```
 
