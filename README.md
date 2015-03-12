@@ -46,6 +46,7 @@ Unzip the utility and adjust the directory name
 ```
 sudo unzip lsync-rsautoscale.zip
 sudo mv lsync-rsautoscale-master lsync-rsautoscale
+sudo rm lsync-rsautoscale.zip
 ```
 
 Move into the directory
@@ -60,6 +61,11 @@ sudo apt-get -y install python-dev python-pip
 sudo  pip install -r requirements.txt
 ```
 
+For Ubuntu, create the lsyncd log directory
+```
+sudo mkdir /var/log/lsyncd/
+```
+
 Create a file called .cloud_credentials in the home directory
 ```
 [rackspace_cloud]
@@ -69,6 +75,6 @@ api_key = RACKSPACE_API_KEY
 
 Create a cron job file. In this example, we will call it /etc/cron.d/lsync-rsautoscale
 ```
-* * * * * root python /opt/lsync-rsautoscale/main.py --as-group=AUTOSCALE_GROUP_ID --region=REGION > /etc/lsyncd.conf 2>/var/log/lsync-autoscale.error_log; service lsyncd reload
+* * * * * root python /opt/lsync-rsautoscale/main.py --as-group=AUTOSCALE_GROUP_ID --region=REGION > /etc/lsyncd/lsyncd.conf.lua 2>/var/log/lsync-autoscale.error_log; service lsyncd reload
 ```
 
