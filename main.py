@@ -42,8 +42,11 @@ def main():
   snet_ips = []
 
   for s_id in as_group.get_state()['active']:
-    server = cs.servers.get(s_id)
-    snet_ips.append(server.networks['private'][0])
+    try
+      serve:r = cs.servers.get(s_id)
+      snet_ips.append(server.networks['private'][0])
+    except:
+      pass
 
   generate_lsync_config(snet_ips)
 
