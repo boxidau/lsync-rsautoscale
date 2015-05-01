@@ -43,7 +43,7 @@ def main():
 
   for s_id in as_group.get_state()['active']:
     try
-      serve:r = cs.servers.get(s_id)
+      server = cs.servers.get(s_id)
       snet_ips.append(server.networks['private'][0])
     except:
       pass
